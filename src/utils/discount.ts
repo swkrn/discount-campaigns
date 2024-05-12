@@ -1,13 +1,13 @@
 import Item from "../models/items"
 
 export const fixAmountCoupon = (
-    itemList: Item[], 
-    discountAmount: number): number => itemList.reduce((p, v) => p + v.price * v.amount, 0) - discountAmount
+    price: number,
+    discountAmount: number): number => price - discountAmount
 
 
 export const percentageDiscountCoupon = (
-    itemList: Item[], 
-    discountPercentage: number): number => itemList.reduce((p, v) => p + v.price * v.amount, 0) * ((100 - discountPercentage) / 100)
+    price: number,
+    discountPercentage: number): number => price * ((100 - discountPercentage) / 100)
 
 
 export const percentageDiscountByItemCategoryOnTop = (
@@ -17,6 +17,7 @@ export const percentageDiscountByItemCategoryOnTop = (
     discountPercentage: number
 ): number => {
     let discountByItemAmount = itemList.filter(e => e.category === category).reduce((p, v) => p + v.price * v.amount, 0) * ((100 - discountPercentage) / 100)
+    console.log(discountByItemAmount)
     return price - discountByItemAmount
 }
 
@@ -37,5 +38,5 @@ export const specialCampaignsSeasonal =(
     everyAmount: number,
     discountAmount: number,
 ): number => {
-    return Math.floor(price / everyAmount) * discountAmount
+    return price - Math.floor(price / everyAmount) * discountAmount
 }
