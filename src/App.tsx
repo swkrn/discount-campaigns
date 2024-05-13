@@ -273,7 +273,7 @@ function App() {
                             <h2>Add Item</h2>
                             <div className="mb-2">
                                 <label className="form-label">Name</label>
-                                <input type='text' className={`form-control ${itemName.length > 0 ? '' : 'is-invalid'}`} value={itemName} onChange={e => setItemName(e.target.value)} placeholder='Eg. T-Shirt' />
+                                <input type='text' className={`form-control ${itemName.length > 0 ? '' : 'is-invalid'}`} value={itemName} onChange={e => setItemName(e.target.value)} placeholder='E.g. T-Shirt' />
                             </div>
                             <div className="mb-2">
                                 <label className="form-label">Price</label>
@@ -298,7 +298,7 @@ function App() {
                         <div className="card p-3 form-group d-grid gap-2 mt-4">
                             <h2>Add Category</h2>
                             <div className="mb-2">
-                                <input type='text' className={`form-control ${newCategory.length > 0 ? '' : 'is-invalid'}`} value={newCategory} onChange={e => setNewCategory(e.target.value)} placeholder='Eg. Furniture' />
+                                <input type='text' className={`form-control ${newCategory.length > 0 ? '' : 'is-invalid'}`} value={newCategory} onChange={e => setNewCategory(e.target.value)} placeholder='E.g. Furniture' />
                             </div>
                             <button className={`btn btn-primary ${canAddCategory() ? '' : 'disabled'}`} onClick={addCategory}>Add</button>
                         </div>
