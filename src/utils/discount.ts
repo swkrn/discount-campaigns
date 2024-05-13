@@ -2,12 +2,12 @@ import Item from "../models/items"
 
 export const fixAmountCoupon = (
     price: number,
-    discountAmount: number): number => price - discountAmount
+    discountAmount: number): number => Math.max(price - discountAmount, 0)
 
 
 export const percentageDiscountCoupon = (
     price: number,
-    discountPercentage: number): number => price * ((100 - discountPercentage) / 100)
+    discountPercentage: number): number => Math.max(price * ((100 - discountPercentage) / 100), 0)
 
 
 export const percentageDiscountByItemCategoryOnTop = (
@@ -16,9 +16,9 @@ export const percentageDiscountByItemCategoryOnTop = (
     category: string,
     discountPercentage: number
 ): number => {
-    let discountByItemAmount = itemList.filter(e => e.category === category).reduce((p, v) => p + v.price * v.amount, 0) * ((100 - discountPercentage) / 100)
+    let discountByItemAmount = itemList.filter(e => e.category === category).reduce((p, v) => p + v.price * v.amount, 0) * ((discountPercentage) / 100)
     console.log(discountByItemAmount)
-    return price - discountByItemAmount
+    return Math.max(price - discountByItemAmount, 0)
 }
 
 
@@ -29,7 +29,7 @@ export const discountByPointsOnTop = (
     const priceWithPoint = price - point
     const priceTwentyPercentageOff = price * 0.8
 
-    return Math.max(priceWithPoint, priceTwentyPercentageOff)
+    return Math.max(Math.max(priceWithPoint, priceTwentyPercentageOff), 0)
 }
 
 

@@ -4,11 +4,11 @@ class Item {
     amount: number
     category: string
 
-    constructor(name: string, price: number, amount: number, type: string) {
+    constructor(name: string, price: number, amount: number, category: string) {
         this.name = name
         this.price = price
         this.amount = amount
-        this.category = type
+        this.category = category
     }
 }
 
