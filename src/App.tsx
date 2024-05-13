@@ -334,9 +334,9 @@ function App() {
                         {selectedCoupon.length > 0 && <table className='table table-sm mt-2'>
                             <thead>
                                 {selectedCoupon === fixAmountCoupon.name && <tr>
-                                    <td><b>Coupon Discount (-{couponDiscountAmount} THB)</b></td><td><b>{discountedPrice()['couponPrice'].toFixed(2)} THB</b></td></tr>}
+                                    <td><b>Price with Coupon Discount (-{couponDiscountAmount} THB)</b></td><td><b>{discountedPrice()['couponPrice'].toFixed(2)} THB</b></td></tr>}
                                 {selectedCoupon === percentageDiscountCoupon.name && <tr>
-                                    <td><b>Coupon Discount (-{couponDiscountPercentage}%)</b></td><td><b>{discountedPrice()['couponPrice'].toFixed(2)} THB</b></td></tr>}
+                                    <td><b>Price with Coupon Discount (-{couponDiscountPercentage}%)</b></td><td><b>{discountedPrice()['couponPrice'].toFixed(2)} THB</b></td></tr>}
                             </thead>
                             <tbody>
                                 {itemAfterCouponPriceCut.map(item => <tr><td>{item.name}</td><td>{item.price.toFixed(2)} THB</td></tr>)}
@@ -345,7 +345,7 @@ function App() {
 
                         {selectedOnTop === percentageDiscountByItemCategoryOnTop.name && <table className='table table-sm mt-2'>
                             <thead>
-                                <tr><td><b>On-Top Discount on {onTopCategory} (-{onTopDiscountPercentage}%)</b></td><td><b>{discountedPrice()['onTopPrice'].toFixed(2)} THB</b></td></tr>
+                                <tr><td><b>Price with On-Top Discount on {onTopCategory} (-{onTopDiscountPercentage}%)</b></td><td><b>{discountedPrice()['onTopPrice'].toFixed(2)} THB</b></td></tr>
                             </thead>
                             <tbody>
                                 {itemAfterCouponPriceCut.map(item => {
@@ -359,21 +359,21 @@ function App() {
 
                         {selectedOnTop === discountByPointsOnTop.name && ((discountedPrice()['couponPrice'] - discountedPrice()['onTopPrice']) >= onTopCustomerPoints) && <table className='table table-sm mt-2'>
                             <thead>
-                                <tr><td><b>On-Top Discount ({onTopCustomerPoints} Points)</b></td><td><b>{discountedPrice()['onTopPrice'].toFixed(2)} THB</b></td></tr>
+                                <tr><td><b>Price with On-Top Discount ({onTopCustomerPoints} Points)</b></td><td><b>{discountedPrice()['onTopPrice'].toFixed(2)} THB</b></td></tr>
                             </thead>
                             <tbody><tr></tr></tbody>
                         </table>}
 
                         {selectedOnTop === discountByPointsOnTop.name && ((discountedPrice()['couponPrice'] - discountedPrice()['onTopPrice']) < onTopCustomerPoints) && <table className='table table-sm mt-2'>
                             <thead>
-                                <tr><td><b>On-Top Discount (Reach Max -20% Discount - Use {Math.ceil(discountedPrice()['couponPrice'] - discountedPrice()['onTopPrice'])} Points)</b></td><td><b>{discountedPrice()['onTopPrice'].toFixed(2)} THB</b></td></tr>
+                                <tr><td><b>Price with On-Top Discount (Reach Max -20% Discount - Use {Math.ceil(discountedPrice()['couponPrice'] - discountedPrice()['onTopPrice'])} Points)</b></td><td><b>{discountedPrice()['onTopPrice'].toFixed(2)} THB</b></td></tr>
                             </thead>
                             <tbody><tr></tr></tbody>
                         </table>}
 
                         {selectedSeasonal === specialCampaignsSeasonal.name && <table className='table table-sm mt-2'>
                             <thead>
-                                <tr><td><b>Seasonal Discount [-{seasonalDiscountAmount} THB Every {seasonalEveryAmount} THB] (-{(discountedPrice()['onTopPrice'] - discountedPrice()['seasonalPrice']).toFixed(2)} THB)</b></td><td><b>{discountedPrice()['seasonalPrice'].toFixed(2)} THB</b></td></tr>
+                                <tr><td><b>Price with Seasonal Discount [-{seasonalDiscountAmount} THB Every {seasonalEveryAmount} THB] (-{(discountedPrice()['onTopPrice'] - discountedPrice()['seasonalPrice']).toFixed(2)} THB)</b></td><td><b>{discountedPrice()['seasonalPrice'].toFixed(2)} THB</b></td></tr>
                             </thead>
                             <tbody><tr></tr></tbody>
                         </table>}
