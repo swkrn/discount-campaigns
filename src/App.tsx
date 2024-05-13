@@ -200,7 +200,7 @@ function App() {
                                         Percentage Discount by Item Category
                                     </label>
                                     {selectedOnTop === percentageDiscountByItemCategoryOnTop.name && <div>
-                                        <select className="form-control mb-3" value={onTopCategory} onChange={e => setOnTopCategory(e.target.value)}>
+                                        <select className="form-select mb-3" value={onTopCategory} onChange={e => setOnTopCategory(e.target.value)}>
                                             {categoryList.map(type => <option value={type}>{type}</option>)}
                                         </select>
                                         <div className='input-group mb-3'>
@@ -288,7 +288,7 @@ function App() {
                             </div>
                             <div className="mb-2">
                                 <label className="form-label">Category</label>
-                                <select className="form-control" value={itemCategory} onChange={e => setItemCategory(e.target.value)}>
+                                <select className="form-select" value={itemCategory} onChange={e => setItemCategory(e.target.value)}>
                                     {categoryList.map(type => <option value={type}>{type}</option>)}
                                 </select>
                             </div>
